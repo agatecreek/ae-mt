@@ -1,0 +1,683 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<style>
+.auto-style5 {
+    font-family: Verdana;
+    font-size: 12px;
+    color: blue;
+    display: block;
+}
+
+#product{
+ width:100px;   
+}
+#cat1{
+ width:100px;   
+}
+#cat2{
+ width:100px;   
+}
+</style>
+
+
+<script>
+var webPath = localStorage.getItem("webPath");
+var imgPath = localStorage.getItem("imgPath");
+
+const productObject = {
+  Clothing: {
+    Bag: {
+      Color: {HTML: "COL"},
+      Size: {HTML: "SIZ"},
+      Type: {HTML: "TYP"},
+      Vendor: {HTML: "VEN"},
+      Manufacturer: {HTML: "MFG"},
+      Brand: {HTML: "BRD"},
+      HTML: "BAG"
+    },
+    Belt: {
+      Color: {HTML: "COL"},
+      Size: {HTML: "SIZ"},
+      Type: {HTML: "TYP"},
+      Vendor: {HTML: "VEN"},
+      Manufacturer: {HTML: "MFG"},
+      Brand: {HTML: "BRD"},
+      HTML: "BLT"
+    },
+    Bikini: {
+      Color: {HTML: "COL"},
+      Size: {HTML: "SIZ"},
+      Type: {HTML: "TYP"},
+      Vendor: {HTML: "VEN"},
+      Manufacturer: {HTML: "MFG"},
+      Brand: {HTML: "BRD"},
+      HTML: "BIK"
+    },
+    Bra: {
+      Color: {HTML: "COL"},
+      Size: {HTML: "SIZ"},
+      Type: {HTML: "TYP"},
+      Vendor: {HTML: "VEN"},
+      Manufacturer: {HTML: "MFG"},
+      Brand: {HTML: "BRD"},
+      HTML: "BRA"
+    },
+    Corset: {
+      Color: {HTML: "COL"},
+      Size: {HTML: "SIZ"},
+      Type: {HTML: "TYP"},
+      Vendor: {HTML: "VEN"},
+      Manufacturer: {HTML: "MFG"},
+      Brand: {HTML: "BRD"},
+      HTML: "COR"
+    },
+    Costume: {
+      Color: {HTML: "COL"},
+      Size: {HTML: "SIZ"},
+      Type: {HTML: "TYP"},
+      Vendor: {HTML: "VEN"},
+      Manufacturer: {HTML: "MFG"},
+      Brand: {HTML: "BRD"},
+      HTML: "COS"
+    },
+    Dancewear: {
+      Color: {HTML: "COL"},
+      Size: {HTML: "SIZ"},
+      Type: {HTML: "TYP"},
+      Vendor: {HTML: "VEN"},
+      Manufacturer: {HTML: "MFG"},
+      Brand: {HTML: "BRD"},
+      HTML: "DNW"
+    },
+    Footwear: {
+      Color: {HTML: "COL"},
+      Size: {HTML: "SIZ"},
+      Type: {HTML: "TYP"},
+      Vendor: {HTML: "VEN"},
+      Manufacturer: {HTML: "MFG"},
+      Brand: {HTML: "BRD"},
+      HTML: "FTW"
+    },
+    Handwear: {
+      Color: {HTML: "COL"},
+      Size: {HTML: "SIZ"},
+      Type: {HTML: "TYP"},
+      Vendor: {HTML: "VEN"},
+      Manufacturer: {HTML: "MFG"},
+      Brand: {HTML: "BRD"},
+      HTML: "HAW"
+    },
+    Headwear: {
+      Color: {HTML: "COL"},
+      Size: {HTML: "SIZ"},
+      Type: {HTML: "TYP"},
+      Vendor: {HTML: "VEN"},
+      Manufacturer: {HTML: "MFG"},
+      Brand: {HTML: "BRD"},
+      HTML: "HEW"
+    },
+    Jewelry: {
+      Color: {HTML: "COL"},
+      Size: {HTML: "SIZ"},
+      Type: {HTML: "TYP"},
+      Vendor: {HTML: "VEN"},
+      Manufacturer: {HTML: "MFG"},
+      Brand: {HTML: "BRD"},
+      HTML: "JEW"
+    },
+    Legging: {
+      Color: {HTML: "COL"},
+      Size: {HTML: "SIZ"},
+      Type: {HTML: "TYP"},
+      Vendor: {HTML: "VEN"},
+      Manufacturer: {HTML: "MFG"},
+      Brand: {HTML: "BRD"},
+      HTML: "LEG"
+    },
+    Misc: {
+      Color: {HTML: "COL"},
+      Size: {HTML: "SIZ"},
+      Type: {HTML: "TYP"},
+      Vendor: {HTML: "VEN"},
+      Manufacturer: {HTML: "MFG"},
+      Brand: {HTML: "BRD"},
+      HTML: "MSC"
+    },
+    Neckwear: {
+      Color: {HTML: "COL"},
+      Size: {HTML: "SIZ"},
+      Type: {HTML: "TYP"},
+      Vendor: {HTML: "VEN"},
+      Manufacturer: {HTML: "MFG"},
+      Brand: {HTML: "BRD"},
+      HTML: "NCW"
+    },
+    Nightgown: {
+      Color: {HTML: "COL"},
+      Size: {HTML: "SIZ"},
+      Type: {HTML: "TYP"},
+      Vendor: {HTML: "VEN"},
+      Manufacturer: {HTML: "MFG"},
+      Brand: {HTML: "BRD"},
+      HTML: "NTG"
+    },
+    Panty: {
+      Color: {HTML: "COL"},
+      Size: {HTML: "SIZ"},
+      Type: {HTML: "TYP"},
+      Vendor: {HTML: "VEN"},
+      Manufacturer: {HTML: "MFG"},
+      Brand: {HTML: "BRD"},
+      HTML: "PTY"
+    },
+    Shirt: {
+      Color: {HTML: "COL"},
+      Size: {HTML: "SIZ"},
+      Type: {HTML: "TYP"},
+      Vendor: {HTML: "VEN"},
+      Manufacturer: {HTML: "MFG"},
+      Brand: {HTML: "BRD"},
+      HTML: "SHT"
+    },
+    Skirt: {
+      Color: {HTML: "COL"},
+      Size: {HTML: "SIZ"},
+      Type: {HTML: "TYP"},
+      Vendor: {HTML: "VEN"},
+      Manufacturer: {HTML: "MFG"},
+      Brand: {HTML: "BRD"},
+      HTML: "SKT"
+    },
+    Tape: {
+      Color: {HTML: "COL"},
+      Size: {HTML: "SIZ"},
+      Type: {HTML: "TYP"},
+      Vendor: {HTML: "VEN"},
+      Manufacturer: {HTML: "MFG"},
+      Brand: {HTML: "BRD"},
+      HTML: "TAP"
+    },
+    Top: {
+      Color: {HTML: "COL"},
+      Size: {HTML: "SIZ"},
+      Type: {HTML: "TYP"},
+      Vendor: {HTML: "VEN"},
+      Manufacturer: {HTML: "MFG"},
+      Brand: {HTML: "BRD"},
+      HTML: "TOP"
+    },
+    Underwear: {
+      Color: {HTML: "COL"},
+      Size: {HTML: "SIZ"},
+      Type: {HTML: "TYP"},
+      Vendor: {HTML: "VEN"},
+      Manufacturer: {HTML: "MFG"},
+      Brand: {HTML: "BRD"},
+      HTML: "UNW"
+    },
+    HTML: "CLO"
+  },
+  Lube: {
+    Anal: {
+      Color: {HTML: "COL"},
+      Size: {HTML: "SIZ"},
+      Flavor: {HTML: "FLV"},
+      Type: {HTML: "TYP"},
+      Vendor: {HTML: "VEN"},
+      Manufacturer: {HTML: "MFG"},
+      Brand: {HTML: "BRD"},
+      HTML: "ANL"
+    },
+    Bath: {
+      Color: {HTML: "COL"},
+      Size: {HTML: "SIZ"},
+      Flavor: {HTML: "FLV"},
+      Type: {HTML: "TYP"},
+      Vendor: {HTML: "VEN"},
+      Manufacturer: {HTML: "MFG"},
+      Brand: {HTML: "BRD"},
+      HTML: "BTH"
+    },
+    BodyPaint: {
+      Color: {HTML: "COL"},
+      Size: {HTML: "SIZ"},
+      Flavor: {HTML: "FLV"},
+      Type: {HTML: "TYP"},
+      Vendor: {HTML: "VEN"},
+      Manufacturer: {HTML: "MFG"},
+      Brand: {HTML: "BRD"},
+      HTML: "BDP"
+    },
+    CBD: {
+      Color: {HTML: "COL"},
+      Size: {HTML: "SIZ"},
+      Flavor: {HTML: "FLV"},
+      Type: {HTML: "TYP"},
+      Vendor: {HTML: "VEN"},
+      Manufacturer: {HTML: "MFG"},
+      Brand: {HTML: "BRD"},
+      HTML: "CBD"
+    },
+    Cleaner: {
+      Color: {HTML: "COL"},
+      Size: {HTML: "SIZ"},
+      Flavor: {HTML: "FLV"},
+      Type: {HTML: "TYP"},
+      Vendor: {HTML: "VEN"},
+      Manufacturer: {HTML: "MFG"},
+      Brand: {HTML: "BRD"},
+      HTML: "CLN"
+    },
+    Cologne: {
+      Color: {HTML: "COL"},
+      Size: {HTML: "SIZ"},
+      Flavor: {HTML: "FLV"},
+      Type: {HTML: "TYP"},
+      Vendor: {HTML: "VEN"},
+      Manufacturer: {HTML: "MFG"},
+      Brand: {HTML: "BRD"},
+      HTML: "CLG"
+    },
+    Condom: {
+      Color: {HTML: "COL"},
+      Size: {HTML: "SIZ"},
+      Flavor: {HTML: "FLV"},
+      Type: {HTML: "TYP"},
+      Vendor: {HTML: "VEN"},
+      Manufacturer: {HTML: "MFG"},
+      Brand: {HTML: "BRD"},
+      HTML: "CON"
+    },
+    Cosmetic: {
+      Color: {HTML: "COL"},
+      Size: {HTML: "SIZ"},
+      Flavor: {HTML: "FLV"},
+      Type: {HTML: "TYP"},
+      Vendor: {HTML: "VEN"},
+      Manufacturer: {HTML: "MFG"},
+      Brand: {HTML: "BRD"},
+      HTML: "COS"
+    },
+    Fetish: {
+      Color: {HTML: "COL"},
+      Size: {HTML: "SIZ"},
+      Flavor: {HTML: "FLV"},
+      Type: {HTML: "TYP"},
+      Vendor: {HTML: "VEN"},
+      Manufacturer: {HTML: "MFG"},
+      Brand: {HTML: "BRD"},
+      HTML: "FET"
+    },
+    Flavor: {
+      Color: {HTML: "COL"},
+      Size: {HTML: "SIZ"},
+      Flavor: {HTML: "FLV"},
+      Type: {HTML: "TYP"},
+      Vendor: {HTML: "VEN"},
+      Manufacturer: {HTML: "MFG"},
+      Brand: {HTML: "BRD"},
+      HTML: "FLV"
+    },
+    Hybrid: {
+      Color: {HTML: "COL"},
+      Size: {HTML: "SIZ"},
+      Flavor: {HTML: "FLV"},
+      Type: {HTML: "TYP"},
+      Vendor: {HTML: "VEN"},
+      Manufacturer: {HTML: "MFG"},
+      Brand: {HTML: "BRD"},
+      HTML: "HYB"
+    },
+    Massage: {
+      Color: {HTML: "COL"},
+      Size: {HTML: "SIZ"},
+      Flavor: {HTML: "FLV"},
+      Type: {HTML: "TYP"},
+      Vendor: {HTML: "VEN"},
+      Manufacturer: {HTML: "MFG"},
+      Brand: {HTML: "BRD"},
+      HTML: "MAS"
+    },
+    Performance: {
+      Color: {HTML: "COL"},
+      Size: {HTML: "SIZ"},
+      Flavor: {HTML: "FLV"},
+      Type: {HTML: "TYP"},
+      Vendor: {HTML: "VEN"},
+      Manufacturer: {HTML: "MFG"},
+      Brand: {HTML: "BRD"},
+      HTML: "PFM"
+    },
+    Perfume: {
+      Color: {HTML: "COL"},
+      Size: {HTML: "SIZ"},
+      Flavor: {HTML: "FLV"},
+      Type: {HTML: "TYP"},
+      Vendor: {HTML: "VEN"},
+      Manufacturer: {HTML: "MFG"},
+      Brand: {HTML: "BRD"},
+      HTML: "PER"
+    },
+    Pherome: {
+      Color: {HTML: "COL"},
+      Size: {HTML: "SIZ"},
+      Flavor: {HTML: "FLV"},
+      Type: {HTML: "TYP"},
+      Vendor: {HTML: "VEN"},
+      Manufacturer: {HTML: "MFG"},
+      Brand: {HTML: "BRD"},
+      HTML: "PHR"
+    },
+    PillowPack: {
+      Color: {HTML: "COL"},
+      Size: {HTML: "SIZ"},
+      Flavor: {HTML: "FLV"},
+      Type: {HTML: "TYP"},
+      Vendor: {HTML: "VEN"},
+      Manufacturer: {HTML: "MFG"},
+      Brand: {HTML: "BRD"},
+      HTML: "PLP"
+    },
+    Shaving: {
+      Color: {HTML: "COL"},
+      Size: {HTML: "SIZ"},
+      Flavor: {HTML: "FLV"},
+      Type: {HTML: "TYP"},
+      Vendor: {HTML: "VEN"},
+      Manufacturer: {HTML: "MFG"},
+      Brand: {HTML: "BRD"},
+      HTML: "SHV"
+    },
+    Silicone: {
+      Color: {HTML: "COL"},
+      Size: {HTML: "SIZ"},
+      Flavor: {HTML: "FLV"},
+      Type: {HTML: "TYP"},
+      Vendor: {HTML: "VEN"},
+      Manufacturer: {HTML: "MFG"},
+      Brand: {HTML: "BRD"},
+      HTML: "SIL"
+    },
+    Warming: {
+      Color: {HTML: "COL"},
+      Size: {HTML: "SIZ"},
+      Flavor: {HTML: "FLV"},
+      Type: {HTML: "TYP"},
+      Vendor: {HTML: "VEN"},
+      Manufacturer: {HTML: "MFG"},
+      Brand: {HTML: "BRD"},
+      HTML: "WRM"
+    },
+    Water: {
+      Color: {HTML: "COL"},
+      Size: {HTML: "SIZ"},
+      Flavor: {HTML: "FLV"},
+      Type: {HTML: "TYP"},
+      Vendor: {HTML: "VEN"},
+      Manufacturer: {HTML: "MFG"},
+      Brand: {HTML: "BRD"},
+      HTML: "WAT"
+    },
+    HTML : "LUB"
+  },
+  Media: {
+    Book: {
+      Type: {HTML: "TYP"},
+      Vendor: {HTML: "VEN"},
+      Manufacturer: {HTML: "MFG"},
+      Brand: {HTML: "BRD"},
+      HTML: "BOK"
+    },
+    Movie: {
+      Type: {HTML: "TYP"},
+      Vendor: {HTML: "VEN"},
+      Manufacturer: {HTML: "MFG"},
+      Brand: {HTML: "BRD"},
+      HTML: "MOV"
+    },
+    HTML : "MED"
+  },
+  Novelty: {
+    Bachelorette: {
+      Color: {HTML: "COL"},
+      Size: {HTML: "SIZ"},
+      Type: {HTML: "TYP"},
+      Vendor: {HTML: "VEN"},
+      Manufacturer: {HTML: "MFG"},
+      Brand: {HTML: "BRD"},
+      HTML: "BCH"
+    },
+    BodyPaint: {
+      Color: {HTML: "COL"},
+      Size: {HTML: "SIZ"},
+      Type: {HTML: "TYP"},
+      Vendor: {HTML: "VEN"},
+      Manufacturer: {HTML: "MFG"},
+      Brand: {HTML: "BRD"},
+      HTML: "BDP"
+    },
+    Book: {
+      Color: {HTML: "COL"},
+      Size: {HTML: "SIZ"},
+      Type: {HTML: "TYP"},
+      Vendor: {HTML: "VEN"},
+      Manufacturer: {HTML: "MFG"},
+      Brand: {HTML: "BRD"},
+      HTML: "BOK"
+    },
+    Costume: {
+      Color: {HTML: "COL"},
+      Size: {HTML: "SIZ"},
+      Type: {HTML: "TYP"},
+      Vendor: {HTML: "VEN"},
+      Manufacturer: {HTML: "MFG"},
+      Brand: {HTML: "BRD"},
+      HTML: "COS"
+    },
+    Game: {
+      Color: {HTML: "COL"},
+      Size: {HTML: "SIZ"},
+      Type: {HTML: "TYP"},
+      Vendor: {HTML: "VEN"},
+      Manufacturer: {HTML: "MFG"},
+      Brand: {HTML: "BRD"},
+      HTML: "GAM"
+    },
+    GiftBag: {
+      Color: {HTML: "COL"},
+      Size: {HTML: "SIZ"},
+      Type: {HTML: "TYP"},
+      Vendor: {HTML: "VEN"},
+      Manufacturer: {HTML: "MFG"},
+      Brand: {HTML: "BRD"},
+      HTML: "GFB"
+    },
+    Party: {
+      Color: {HTML: "COL"},
+      Size: {HTML: "SIZ"},
+      Type: {HTML: "TYP"},
+      Vendor: {HTML: "VEN"},
+      Manufacturer: {HTML: "MFG"},
+      Brand: {HTML: "BRD"},
+      HTML: "PTY"
+    },
+    HTML: "NOV"
+  },
+  Supplement: {
+    Female: {
+      Color: {HTML: "COL"},
+      Size: {HTML: "SIZ"},
+      Type: {HTML: "TYP"},
+      Vendor: {HTML: "VEN"},
+      Manufacturer: {HTML: "MFG"},
+      Brand: {HTML: "BRD"},
+      HTML: "FEM"
+    },
+    Male: {
+      Color: {HTML: "COL"},
+      Size: {HTML: "SIZ"},
+      Type: {HTML: "TYP"},
+      Vendor: {HTML: "VEN"},
+      Manufacturer: {HTML: "MFG"},
+      Brand: {HTML: "BRD"},
+      HTML: "MAL"
+    },
+    Unisex: {
+      Color: {HTML: "COL"},
+      Size: {HTML: "SIZ"},
+      Type: {HTML: "TYP"},
+      Vendor: {HTML: "VEN"},
+      Manufacturer: {HTML: "MFG"},
+      Brand: {HTML: "BRD"},
+      HTML: "USX"
+    },
+    HTML : "SUP"
+  },
+  Toy: {
+    Anal: {
+      Color: {HTML: "COL"},
+      Size: {HTML: "SIZ"},
+      Type: {HTML: "TYP"},
+      Vendor: {HTML: "VEN"},
+      Manufacturer: {HTML: "MFG"},
+      Brand: {HTML: "BRD"},
+      HTML: "ANL"
+    },
+    Dildo: {
+      Color: {HTML: "COL"},
+      Size: {HTML: "SIZ"},
+      Type: {HTML: "TYP"},
+      Vendor: {HTML: "VEN"},
+      Manufacturer: {HTML: "MFG"},
+      Brand: {HTML: "BRD"},
+      HTML: "DLD"
+    },
+    Doll: {
+      Color: {HTML: "COL"},
+      Size: {HTML: "SIZ"},
+      Type: {HTML: "TYP"},
+      Vendor: {HTML: "VEN"},
+      Manufacturer: {HTML: "MFG"},
+      Brand: {HTML: "BRD"},
+      HTML: "DOL"
+    },
+    Fetish: {
+      Color: {HTML: "COL"},
+      Size: {HTML: "SIZ"},
+      Type: {HTML: "TYP"},
+      Vendor: {HTML: "VEN"},
+      Manufacturer: {HTML: "MFG"},
+      Brand: {HTML: "BRD"},
+      HTML: "FET"
+    },
+    Masturbator: {
+      Color: {HTML: "COL"},
+      Size: {HTML: "SIZ"},
+      Type: {HTML: "TYP"},
+      Vendor: {HTML: "VEN"},
+      Manufacturer: {HTML: "MFG"},
+      Brand: {HTML: "BRD"},
+      HTML: "MAS"
+    },
+    Vibrator: {
+      Color: {HTML: "COL"},
+      Size: {HTML: "SIZ"},
+      Type: {HTML: "TYP"},
+      Vendor: {HTML: "VEN"},
+      Manufacturer: {HTML: "MFG"},
+      Brand: {HTML: "BRD"},
+      HTML: "VIB"
+    },
+    HTML: "TOY"
+  },
+  HTML: "PRD"
+}
+
+
+window.onload = function() {
+
+    var myType = localStorage.getItem("myType");
+    var myTime = localStorage.getItem("myTime");
+    var myLoc = localStorage.getItem("myLoc");
+    var myCat = localStorage.getItem("myCat");
+
+
+    var productSel = document.getElementById("product");
+    var cat1Sel = document.getElementById("cat1");
+    var cat2Sel = document.getElementById("cat2");
+
+    for (var x in productObject) {
+        if (x == "HTML")
+          var catHTMLTag = productObject.HTML;
+        else
+          productSel.options[productSel.options.length] = new Option(x, x);
+      }
+
+    productSel.onchange = function() {
+        //empty cat2s- and cat1s- dropdowns
+        cat2Sel.length = 1;
+        cat1Sel.length = 1;
+    //display correct values
+    for (var y in productObject[this.value]) {
+        if (y == "HTML")
+          localStorage.setItem("prdHTMLTag",productObject[this.value].HTML);
+        else
+          cat1Sel.options[cat1Sel.options.length] = new Option(y, y);
+      }
+    var prdHTMLTag = localStorage.getItem("prdHTMLTag");
+    top.frames['main'].location.href=imgPath+myType+'-'+myTime+'-'+myLoc+'-'+myCat+'-'+catHTMLTag+'-'+prdHTMLTag+'.svg';
+    }
+
+    cat1Sel.onchange = function() {
+        //empty cat2s- and cat1s- dropdowns
+        cat2Sel.length = 1;
+    //display correct values
+    for (var z in productObject[productSel.value][this.value]) {
+        if (z == "HTML")
+          localStorage.setItem("cat1HTMLTag",productObject[productSel.value][this.value].HTML);
+        else
+          cat2Sel.options[cat2Sel.options.length] = new Option(z, z);
+      }
+    var prdHTMLTag = localStorage.getItem("prdHTMLTag");
+    var cat1HTMLTag = localStorage.getItem("cat1HTMLTag");
+    top.frames['main'].location.href=imgPath+myType+'-'+myTime+'-'+myLoc+'-'+myCat+'-'+catHTMLTag+'-'+prdHTMLTag+'-'+cat1HTMLTag+'.svg';
+    }
+
+    cat2Sel.onchange = function() {
+        //empty cat2s- and cat1s- dropdowns
+    //display correct values
+    for (var zz in productObject[productSel.value][cat1Sel.value][this.value]) {
+        if (zz == "HTML")
+          localStorage.setItem("cat2HTMLTag",productObject[productSel.value][cat1Sel.value][this.value].HTML);
+      }
+    var prdHTMLTag = localStorage.getItem("prdHTMLTag");
+    var cat1HTMLTag = localStorage.getItem("cat1HTMLTag");
+    var cat2HTMLTag = localStorage.getItem("cat2HTMLTag");
+    top.frames['main'].location.href=imgPath+myType+'-'+myTime+'-'+myLoc+'-'+myCat+'-'+catHTMLTag+'-'+prdHTMLTag+'-'+cat1HTMLTag+'-'+cat2HTMLTag+'.svg';
+    }
+
+
+}
+
+</script>
+
+</head>   
+<body>
+
+<select name="product" id="product">
+  <option value="" selected="selected">--- Product ---</option>
+</select> 
+
+<select name="cat1" id="cat1">
+  <option value="" selected="selected">--- Cat1 ---</option>
+  </select>
+  
+<select name="cat2" id="cat2">
+  <option value="" selected="selected">--- Cat2 ---</option>
+</select> 
+
+</body>
+</html>

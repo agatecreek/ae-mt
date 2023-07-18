@@ -1,0 +1,122 @@
+<!DOCTYPE htmI PUBLIC "- / /W3C/ /DTD XHTML 1.0 Transitional//EN" "http://www.w.org/TR/xhtml1/DTD/xhtmIl-transitional.dtd">
+<html xmIns="http://www.w3.org/1999/xhtml">
+<head>
+<meta content="en-us" http-equiv= "Content-Language" /> 
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type" /> 
+<title>AE Reports</title> 
+<style type="text/css">
+.auto-style1 {
+		font-family: Verdana;
+		font-size: 16px;
+		color: black;
+}
+.auto-style2 {
+		color: #6699ff;
+}
+.auto-style3 {
+		font-family: Verdana;
+		font-size: 12px;
+		color: black;
+}
+.auto-style4 {
+		font-family: Verdana;
+		font-size: 12px;
+		color: blue;
+}
+</style> 
+<base target="_self" />
+</head>
+
+<body>
+
+
+
+<p class="auto-style1"><span class="auto-style1"><strong>AE Reports</strong></span><br />
+
+<span class="auto-style3"><strong>Type</strong></span>:&nbsp;
+
+<label class="auto-style4"><input type="radio" id="1" name="type" onchange="WhatToDo()" checked="checked" value="S">Sales</input></label>
+<label class="auto-style4"><input type="radio" id="2" name="type" onchange="WhatToDo()" value="M">Margin</input></label>
+
+
+&nbsp; &nbsp; 
+<span class="auto-style3"><strong>Time</strong></span>:&nbsp;
+
+<label class="auto-style4"><input type="radio" id="4" name="time" onchange="WhatToDo()" value="Yr">Year</input></label>
+<label class="auto-style4"><input type="radio" id="5" name="time" onchange="WhatToDo()" value="Mo">Month</input></label>
+<label class="auto-style4"><input type="radio" id="6" name="time" onchange="WhatToDo()" value="Wk">Week</input></label>
+<label class="auto-style4"><input type="radio" id="7" name="time" onchange="WhatToDo()" value="Dy">Day</input></label>
+
+&nbsp; &nbsp; 
+<span class="auto-style3"><strong>Location</strong></spans>:&nbsp;
+
+<label class="auto-style4"><input type="radio" id="10" name="loc" onchange="WhatToDo()" checked="checked" value="All">All</input></label>
+<label class="auto-style4"><input type="radio" id="12" name="loc" onchange="WhatToDo()" value="BL">BL</input></label>
+<label class="auto-style4"><input type="radio" id="14" name="loc" onchange="WhatToDo()" value="GF">GF</input></label> 
+<label class="auto-style4"><input type="radio" id="16" name="loc" onchange="WhatToDo()" value="HL">HL</input></label>
+<label class="auto-style4"><input type="radio" id="18" name="loc" onchange="WhatToDo()" value="MS">MS</input></label>
+<label class="auto-style4"><input type="radio" id="20" name="loc" onchange="WhatToDo()" value="TF">TF</input></label>
+
+<br>
+
+<span class="auto-style3"><strong>Category</strong></span>:&nbsp;
+
+<label class="auto-style4"><input type="radio" id="40" name="cat" onchange="WhatToDo()" checked="checked" value="Sto">Store</input></label>
+<label class="auto-style4"><input type="radio" id="41" name="cat" onchange="WhatToDo()" value="Prd">Product</input></label>
+<label class="auto-style4"><input type="radio" id="42" name="cat" onchange="WhatToDo()" value="Ven">Vendor</input></label>
+<label class="auto-style4"><input type="radio" id="42" name="cat" onchange="WhatToDo()" value="Mfg">Manufacturer</input></label>
+<label class="auto-style4"><input type="radio" id="42" name="cat" onchange="WhatToDo()" value="Brd">Brand</input></label>
+<label class="auto-style4"><input type="radio" id="43" name="cat" onchange="WhatToDo()" value="Ass">Associate</input></label>
+<label class="auto-style4"><input type="radio" id="44" name="cat" onchange="WhatToDo()" value="Wkd">Weekday</input></label>
+<label class="auto-style4"><input type="radio" id="45" name="cat" onchange="WhatToDo()" value="Hor">Hour</input></label>
+
+<script type="text/javascript">
+
+var webPath = localStorage.getItem("webPath");
+var imgPath = localStorage.getItem("imgPath");
+
+function WhatToDo() {
+	
+	var typeItems = document.getElementsByName('type');
+	var timeItems = document.getElementsByName('time');
+	var locItems = document.getElementsByName('loc');
+	var catItems = document.getElementsByName('cat');
+
+	for (var p = 0; p < typeItems.length; p++) {
+		for (var t = 0; t < timeItems.length; t++) {
+			for (var l = 0; l < locItems.length; l++) {
+				for (var c = 0; c < catItems.length; c++) {
+
+					if (typeItems[p].checked) {
+						if (timeItems[t].checked) {
+							if (locItems[l].checked) {
+								if (catItems[c].checked) {
+
+								var myType = typeItems[p].value;
+								localStorage.setItem("myType",myType);
+								var myTime = timeItems[t].value;
+								localStorage.setItem("myTime",myTime);
+								var myLoc = locItems[l].value;
+								localStorage.setItem("myLoc",myLoc);
+								var myCat = catItems[c].value;
+								localStorage.setItem("myCat",myCat);
+
+								top.frames['left1'].location.href=webPath+'Left1-Menu-'+myCat+'.html';
+								top.frames['main'].location.href=imgPath+myType+'-'+myTime+'-'+myLoc+'-'+myCat+'.svg';
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	}	
+}
+
+</script>
+
+</span></p>
+
+</body>
+
+</html>
