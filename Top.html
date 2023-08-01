@@ -104,6 +104,7 @@ function WhatToDo() {
 								localStorage.setItem("myCat",myCat);
 
 								if ((myType == 'T') || (myType == 'X')) {
+									document.getElementById('40').checked = true;
 									document.getElementById('40').removeAttribute("disabled");
 									document.getElementById('41').setAttribute("disabled","disabled");
 									document.getElementById('42').setAttribute("disabled","disabled");
