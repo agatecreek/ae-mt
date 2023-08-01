@@ -23,10 +23,8 @@
 		font-size: 12px;
 		color: blue;
 }
-.auto-style5 {
-		font-family: Verdana;
-		font-size: 12px;
-		color: red;
+.colorText {
+  color: red;
 }
 </style> 
 <base target="_self" />
@@ -113,8 +111,8 @@ function WhatToDo() {
 								if ((myType == 'T') || (myType == 'X')) {
 									ele40.onchange = function(){
 										document.getElementById('40').checked=true;
-										document.getElementById('41').style.color = "red";
 									};
+									document.querySelector('41').classList.add('colorText');
 									document.getElementById('40').removeAttribute("disabled");
 									document.getElementById('41').setAttribute("disabled","disabled");
 									document.getElementById('42').setAttribute("disabled","disabled");
