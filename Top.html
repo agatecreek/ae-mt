@@ -113,6 +113,7 @@ function WhatToDo() {
 								if ((myType == 'T') || (myType == 'X')) {
 									ele40.onchange = function(){
 										document.getElementById('40').checked=true;
+										document.getElementById('41').style.color = "red";
 									};
 									document.getElementById('40').removeAttribute("disabled");
 									document.getElementById('41').setAttribute("disabled","disabled");
