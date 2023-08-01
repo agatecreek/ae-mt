@@ -66,11 +66,11 @@
 <label class="auto-style4"><input type="radio" id="40" name="cat" onchange="WhatToDo()" checked="checked" value="Sto">Store</input></label>
 <label class="auto-style4"><input type="radio" id="41" name="cat" onchange="WhatToDo()" value="Prd">Product</input></label>
 <label class="auto-style4"><input type="radio" id="42" name="cat" onchange="WhatToDo()" value="Ven">Vendor</input></label>
-<label class="auto-style4"><input type="radio" id="42" name="cat" onchange="WhatToDo()" value="Mfg">Manufacturer</input></label>
-<label class="auto-style4"><input type="radio" id="42" name="cat" onchange="WhatToDo()" value="Brd">Brand</input></label>
-<label class="auto-style4"><input type="radio" id="43" name="cat" onchange="WhatToDo()" value="Ass">Associate</input></label>
-<label class="auto-style4"><input type="radio" id="44" name="cat" onchange="WhatToDo()" value="Wkd">Weekday</input></label>
-<label class="auto-style4"><input type="radio" id="45" name="cat" onchange="WhatToDo()" value="Hor">Hour</input></label>
+<label class="auto-style4"><input type="radio" id="43" name="cat" onchange="WhatToDo()" value="Mfg">Manufacturer</input></label>
+<label class="auto-style4"><input type="radio" id="44" name="cat" onchange="WhatToDo()" value="Brd">Brand</input></label>
+<label class="auto-style4"><input type="radio" id="45" name="cat" onchange="WhatToDo()" value="Ass">Associate</input></label>
+<label class="auto-style4"><input type="radio" id="46" name="cat" onchange="WhatToDo()" value="Wkd">Weekday</input></label>
+<label class="auto-style4"><input type="radio" id="47" name="cat" onchange="WhatToDo()" value="Hor">Hour</input></label>
 
 <script type="text/javascript">
 
@@ -102,6 +102,10 @@ function WhatToDo() {
 								localStorage.setItem("myLoc",myLoc);
 								var myCat = catItems[c].value;
 								localStorage.setItem("myCat",myCat);
+
+								if ((myType == 'T') || (myType == 'X')) {
+									document.getElementById('41').setAttribute("disabled","disabled")
+								}
 
 								top.frames['left1'].location.href=webPath+'Left1-Menu-'+myCat+'.html';
 								top.frames['main'].location.href=imgPath+myType+'-'+myTime+'-'+myLoc+'-'+myCat+'.svg';
