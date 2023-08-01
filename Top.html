@@ -108,15 +108,13 @@ function WhatToDo() {
 								var myCat = catItems[c].value;
 								localStorage.setItem("myCat",myCat);
 
-								var ele = document.getElementById('40');
-								var ele41 = document.getElementById('41');
+								var ele40 = document.getElementById('40');
 
 								if ((myType == 'T') || (myType == 'X')) {
-									ele.onchange = function(){
+									ele40.onchange = function(){
 										document.getElementById('40').checked=true;
 									};
 									document.getElementById('40').removeAttribute("disabled");
-									ele41.style.color = "Red";
 									document.getElementById('41').setAttribute("disabled","disabled");
 									document.getElementById('42').setAttribute("disabled","disabled");
 									document.getElementById('43').setAttribute("disabled","disabled");
