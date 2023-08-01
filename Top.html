@@ -104,13 +104,14 @@ function WhatToDo() {
 								localStorage.setItem("myCat",myCat);
 
 								var ele document.getElementById('40');
+								var ele41 document.getElementById('41');
 
 								if ((myType == 'T') || (myType == 'X')) {
 									ele.onchange = function(){
 										document.getElementById('40').checked=true;
 									};
 									document.getElementById('40').removeAttribute("disabled");
-									document.getElementById('41').setProperty('color','red');
+									ele41.style.color = "Red";
 									document.getElementById('41').setAttribute("disabled","disabled");
 									document.getElementById('42').setAttribute("disabled","disabled");
 									document.getElementById('43').setAttribute("disabled","disabled");
