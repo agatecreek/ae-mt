@@ -72,6 +72,7 @@
 <label class="auto-style4"><input type="radio" id="45" name="cat" onchange="WhatToDo()" value="Ass">Associate</input></label>
 <label class="auto-style4"><input type="radio" id="46" name="cat" onchange="WhatToDo()" value="Wkd">Weekday</input></label>
 <label class="auto-style4"><input type="radio" id="47" name="cat" onchange="WhatToDo()" value="Hor">Hour</input></label>
+<label class="auto-style4"><input type="radio" id="48" name="cat" onchange="WhatToDo()" value="Wth">Weather</input></label>
 
 <script type="text/javascript">
 
@@ -118,6 +119,7 @@ function WhatToDo() {
 									document.getElementById('45').setAttribute("disabled","disabled");
 									document.getElementById('46').setAttribute("disabled","disabled");
 									document.getElementById('47').setAttribute("disabled","disabled");
+									document.getElementById('48').setAttribute("disabled","disabled");
 								} else {
 									document.getElementById('40').removeAttribute("disabled");
 									document.getElementById('41').removeAttribute("disabled");
@@ -127,6 +129,7 @@ function WhatToDo() {
 									document.getElementById('45').removeAttribute("disabled");
 									document.getElementById('46').removeAttribute("disabled");
 									document.getElementById('47').removeAttribute("disabled");
+									document.getElementById('48').removeAttribute("disabled");
 								}
 
 								top.frames['left1'].location.href=webPath+'Left1-Menu-'+myCat+'.html';
